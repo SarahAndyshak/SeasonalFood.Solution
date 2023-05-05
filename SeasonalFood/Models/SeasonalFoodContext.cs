@@ -14,15 +14,110 @@ namespace SeasonalFood.Models
     {
       builder.Entity<Food>()
         .HasData(
-          new Food { ParkId = 1, Name = "Crater Lake", Classification = "national park", Location = "Oregon", MajorLandmarks = "Crater Lake, Wizard Island", Activities = "Hiking, camping, birding, fishing, skiing, snowshoeing, snowboarding, sledding", Facilities = "Summer tent and RV camping, electric hookups, seasonal laundry, flush toilets, and showers", YearFounded = 1902 },
+          new Food { FoodId = 1, 
+            Name = "Cherry", 
+            HarvestSeason = "", 
+            Geography = "", 
+            PopularUses = "", 
+            SampleRecipe = "" },
           
-          new Food { ParkId = 2, Name = "Newberry National Volcanic Monument", Classification = "national monument", Location = "Oregon", MajorLandmarks = "Lava Butte, Lava River Cave, Lava Cast Forest, Newberry Caldera, Big Obsidian Flow, Paulina Peak, East Lake, Paulina Lake", Activities = "Biking, camping, fishing, horseback riding, hiking, boating, swimming, skiing, snowshoeing", Facilities = "Tent and RV camping, flush toilets at some campgrounds", YearFounded = 1990 },
+          new Food { FoodId = 2, 
+          Name = "Tomato", 
+          HarvestSeason = "", 
+          Geography = "", 
+          PopularUses = "", 
+          SampleRecipe = "" },
           
-          new Food { ParkId = 3, Name = "Smith Rock State Park", Classification = "state park", Location = "Oregon", MajorLandmarks = "Smith Rock", Activities = "Rock climbing, hiking, horseback riding, biking, camping, kayaking", Facilities = "Walk-in camping, showers, restrooms", YearFounded = 1960 },
+          new Food { FoodId = 3, 
+          Name = "Carrot", 
+          HarvestSeason = "", 
+          Geography = "", 
+          PopularUses = "", 
+          SampleRecipe = "" },
           
-          new Food { ParkId = 4, Name = "Tumalo State Park", Classification = "state park", Location = "Oregon", MajorLandmarks = "Deschutes River Trail", Activities = "Hiking, camping, biking, swimming", Facilities = "Yurts, cabins, tent camping, showers, flush toilets", YearFounded = 1954 },
+          new Food { FoodId = 4, 
+          Name = "Orange", 
+          HarvestSeason = "", 
+          Geography = "", 
+          PopularUses = "", 
+          SampleRecipe = "" },
 
-          new Food { ParkId = 5, Name = "Deschutes National Forest", Classification = "national forest", Location = "Oregon", MajorLandmarks = "Mount Jefferson, Mount Washington, the Three Sisters, Lava Lands, Metolius River, Cascade Lakes", Activities = "Biking, camping, hiking, horseback riding, boating, swimming, skiing, snowboarding, sledding, caving", Facilities = "Varies by site", YearFounded = 1908 }
+          new Food { FoodId = 5, 
+          Name = "Mango", 
+          HarvestSeason = "", 
+          Geography = "", 
+          PopularUses = "", 
+          SampleRecipe = "" },
+
+          new Food { FoodId = 6, 
+          Name = "Banana", 
+          HarvestSeason = "", 
+          Geography = "",
+          PopularUses = "", 
+          SampleRecipe = "" },
+
+          new Food { FoodId = 7, 
+          Name = "Kiwi", 
+          HarvestSeason = "", 
+          Geography = "", 
+          PopularUses = "", 
+          SampleRecipe = "" },
+
+          new Food { FoodId = 8, 
+          Name = "Avocado", 
+          HarvestSeason = "", 
+          Geography = "", 
+          PopularUses = "", 
+          SampleRecipe = "" },
+
+          new Food { FoodId = 9, 
+          Name = "Broccoli", 
+          HarvestSeason = "", 
+          Geography = "", 
+          PopularUses = "", 
+          SampleRecipe = "" },
+
+          new Food { FoodId = 10, 
+          Name = "Cauliflower", 
+          HarvestSeason = "", 
+          Geography = "", 
+          PopularUses = "", 
+          SampleRecipe = "" },
+
+          new Food { FoodId = 11, 
+          Name = "Blueberries", 
+          HarvestSeason = "", 
+          Geography = "", 
+          PopularUses = "", 
+          SampleRecipe = "" },
+
+          new Food { FoodId = 12, 
+          Name = "Cabbage", 
+          HarvestSeason = "", 
+          Geography = "", 
+          PopularUses = "", 
+          SampleRecipe = "" },
+
+          new Food { FoodId = 13, 
+          Name = "Grapes", 
+          HarvestSeason = "", 
+          Geography = "", 
+          PopularUses = "", 
+          SampleRecipe = "" },
+
+          new Food { FoodId = 14, 
+          Name = "Dragonfruit", 
+          HarvestSeason = "", 
+          Geography = "", 
+          PopularUses = "", 
+          SampleRecipe = "" },
+
+          new Food { FoodId = 15, 
+          Name = "Watermelon", 
+          HarvestSeason = "", 
+          Geography = "", 
+          PopularUses = "", 
+          SampleRecipe = "" }         
         );
     }
   }
