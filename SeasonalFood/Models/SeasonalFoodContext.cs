@@ -4,7 +4,7 @@ namespace SeasonalFood.Models
 {
   public class SeasonalFoodContext : DbContext
   {
-    public DbSet<Food> Parks { get; set; }
+    public DbSet<Food> Foods { get; set; }
 
     public SeasonalFoodContext(DbContextOptions<SeasonalFoodContext>options) : base(options)
     {
@@ -74,7 +74,7 @@ namespace SeasonalFood.Models
           Name = "Broccoli", 
           HarvestSeason = "Spring and early summer.", 
           Geography = "Cooler regions.", 
-          PopularUses = "Eaten raw, added to salads, steamed, stir fried.", 
+          PopularUses = "Eaten raw, added to salads, steamed, stir-fried", 
           SampleRecipe = "" },
 
           new Food { FoodId = 10, 
