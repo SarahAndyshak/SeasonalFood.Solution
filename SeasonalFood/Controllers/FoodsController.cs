@@ -27,24 +27,41 @@ namespace SeasonalFood.Controllers
         query = query.Where(entry => entry.Name == name);
       }
 
+// Adjust search parameters to allow for partial matches
+      // if(harvestSeason != null)
+      // {
+      //   query = query.Where(entry => entry.HarvestSeason == harvestSeason);
+      // }
       if(harvestSeason != null)
       {
-        query = query.Where(entry => entry.HarvestSeason == harvestSeason);
+        query = query.Where(entry => entry.HarvestSeason.Contains(harvestSeason));
       }
 
+      // if(geography != null)
+      // {
+      //   query = query.Where(entry => entry.Geography == geography);
+      // }
       if(geography != null)
       {
-        query = query.Where(entry => entry.Geography == geography);
+        query = query.Where(entry => entry.Geography.Contains(geography));
       }
 
+      // if(popularUses != null)
+      // {
+      //   query = query.Where(entry => entry.PopularUses == popularUses);
+      // }
       if(popularUses != null)
       {
-        query = query.Where(entry => entry.PopularUses == popularUses);
+        query = query.Where(entry => entry.PopularUses.Contains(popularUses));
       }
 
+      // if(sampleRecipe != null)
+      // {
+      //   query = query.Where(entry => entry.SampleRecipe == sampleRecipe);
+      // }
       if(sampleRecipe != null)
       {
-        query = query.Where(entry => entry.SampleRecipe == sampleRecipe);
+        query = query.Where(entry => entry.SampleRecipe.Contains(sampleRecipe));
       }
 
       return await query.ToListAsync();

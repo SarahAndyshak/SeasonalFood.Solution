@@ -37,14 +37,14 @@ namespace SeasonalFood.Models
           
           new Food { FoodId = 4, 
           Name = "Orange", 
-          HarvestSeason = "Oranges may be harvested at various times during the year; in the United States navel oranges may be harvested in cooler months.", 
+          HarvestSeason = "Oranges may be harvested at various times during the year; in the United States navel oranges may be harvested in cooler months (fall, winter).", 
           Geography = "Tropical and subtropical climates.", 
           PopularUses = "Eaten raw, made into juice, candied, the skin can be zested, made into jam, marmalade, and preserves, processed into oils", 
           SampleRecipe = "Smoked Orange Peel Chicken, by Patti Fisher | cookeatshare.com | https://cookeatshare.com/recipes/smoked-orange-peel-chicken-793501" },
 
           new Food { FoodId = 5, 
           Name = "Mango", 
-          HarvestSeason = "Late summer through winter.", 
+          HarvestSeason = "Late summer, fall, and winter.", 
           Geography = "Tropical and subtropical climates.", 
           PopularUses = "Eaten raw, incorporated into desserts, added to many savory foods, used in salsas, made into lassi, processed into chutney.", 
           SampleRecipe = "Mango Lassi, by pshinde2109 | cookeatshare.com | https://cookeatshare.com/recipes/mango-lassi-743042" },
@@ -58,14 +58,14 @@ namespace SeasonalFood.Models
 
           new Food { FoodId = 7, 
           Name = "Kiwi", 
-          HarvestSeason = "Early autumn.", 
+          HarvestSeason = "Early fall.", 
           Geography = "Native to the tropics, but varieties can be grown around the world.", 
           PopularUses = "Eaten raw, added into desserts and baked goods, added to salads", 
           SampleRecipe = "Chocolate Kiwi Smoothie, by Nupur UKrasoi | cookeatshare.com | https://cookeatshare.com/recipes/chocolate-kiwi-smoothie-700004" },
 
           new Food { FoodId = 8, 
           Name = "Avocado", 
-          HarvestSeason = "Avocados are in season all year in Mexico.", 
+          HarvestSeason = "Avocados are in season all year in Mexico (spring, summer, winter, and fall).", 
           Geography = "Tropical and sub-tropical regions.", 
           PopularUses = "Eaten in salads, made into guacamole, eaten on toast, made into smoothies, made into soups, used in sushi, juiced, incorporated into drinks and ice creams.", 
           SampleRecipe = "Quinoa Salad with Broccoli and Chickpeas, by Ronda | cookeatshare.com | https://cookeatshare.com/recipes/quinoa-salad-with-broccoli-and-chickpeas-707082" },
@@ -79,7 +79,7 @@ namespace SeasonalFood.Models
 
           new Food { FoodId = 10, 
           Name = "Cauliflower", 
-          HarvestSeason = "Early fall, spring.", 
+          HarvestSeason = "Early fall and spring.", 
           Geography = "Cool-weather climates.", 
           PopularUses = "Eaten raw, roasted, grilled, steamed, pickled, made into pizza crust, mashed like potatoes.", 
           SampleRecipe = "Gobi (Cauliflower) Manchurian, by Hina Gujral | cookeatshare.com | https://cookeatshare.com/recipes/gobi-cauliflower-manchurian-772137" },
@@ -100,7 +100,7 @@ namespace SeasonalFood.Models
 
           new Food { FoodId = 13, 
           Name = "Grapes", 
-          HarvestSeason = "Early autumn.", 
+          HarvestSeason = "Early fall.", 
           Geography = "Areas with milder climates.", 
           PopularUses = "Eaten raw, added to fruit salads, made into jellies and jams, dried into raisins, made into juice, fermented for wine.", 
           SampleRecipe = "Fresh and Easy Grape Sherbet, by Catherine Pappas | cookeatshare.com | https://cookeatshare.com/recipes/fresh-and-easy-grape-sherbet-686486" },
