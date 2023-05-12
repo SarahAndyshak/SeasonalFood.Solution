@@ -120,5 +120,30 @@ namespace SeasonalFood.Controllers
 
       return NoContent();
     }
+
+    // GET api/foods/page/2
+    [HttpGet("page/{page}")]
+    public async Task<ActionResult<List<Food>>> GetFoods(int page)
+    {
+      if (_db.Foods == null)
+        return NotFound();
+
+      var pageResults = 2f;
+      var pageCount = Math.Ceiling(_db.Foods.Count() / pageResults);
+
+      var foods = await _db.Foods
+                      .Skip((page - 1) * (int)pageResults)
+                      .Take((int)pageResults)
+                      .ToListAsync();
+      
+      var response = new FoodResponse
+      {
+        Foods = foods,
+        CurrentPage = page,
+        Pages = (int)pageCount,
+      };
+
+      return Ok(response);
+    }
   }
 }

@@ -5,6 +5,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+var devCorsPolicy = "devCorsPolicy";
+builder.Services.AddCors(options => options.AddPolicy(devCorsPolicy, builder =>
+    {
+    builder
+        .AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader();
+    }));
+
 builder.Services.AddDbContext<SeasonalFoodContext>(
                     dbContextOptions => dbContextOptions
                     .UseMySql(
@@ -32,5 +41,7 @@ else
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors(devCorsPolicy);
 
 app.Run();
