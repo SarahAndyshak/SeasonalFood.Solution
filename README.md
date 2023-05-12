@@ -2,7 +2,7 @@
 
 #### By Sarah Andyshak
 
-#### An API for finding when fruits and vegetables are in season.
+#### An API for learning when fruits and vegetables are in season, where they tend to grow, and popular uses.
 
 ## Technologies Used
 
@@ -13,7 +13,7 @@
 
 ## Description
 
-An API to run with a React front-end site about seasonal fruits and vegetables. 
+This API was created as the backend for the React application [_Is it in Season?_](https://github.com/SarahAndyshak/seasonal-foods).
 
 ## How To Run This Project
 
@@ -32,7 +32,7 @@ dotnet tool install --global dotnet-ef --version 6.0.0
 1. Clone this repo.
 2. Open the terminal and navigate to this project's production directory called "SeasonalFood".
 3. Within the production directory "SeasonalFood", create two new files: `appsettings.json` and `appsettings.Development.json`.
-4. Within `appsettings.json`, put in the following code. Make sure to replacing the `uid` ("YOUR-USER-NAME-HERE")and `pwd` ("YOUR-PASSWORD-HERE") values in the MySQL database connection string with your own username and password for MySQL.
+4. Within `appsettings.json`, put in the following code. Make sure to replace the `database` ("YOUR-DATABASE-NAME-HERE"), `uid` ("YOUR-USER-NAME-HERE"), and `pwd` ("YOUR-PASSWORD-HERE") values in the MySQL database connection string with your own username and password for MySQL.
 
 ```json
 {
@@ -44,7 +44,7 @@ dotnet tool install --global dotnet-ef --version 6.0.0
   },
   "AllowedHosts": "*",
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Port=3306;database=planetary_dictionary;uid=YOUR-USER-NAME-HERE;pwd=YOUR-PASSWORD-HERE;"
+    "DefaultConnection": "Server=localhost;Port=3306;database=YOUR-DATABASE-NAME-HERE;uid=YOUR-USER-NAME-HERE;pwd=YOUR-PASSWORD-HERE;"
   }
 }
 ```
@@ -64,11 +64,26 @@ dotnet tool install --global dotnet-ef --version 6.0.0
 }
 ```
 
-6. Create the database using the migrations in the Seasonal Food API project. Open your shell (e.g., Terminal or GitBash) to the production directory "SeasonalFood", and run `dotnet ef database update`. You may need to run this command for each of the branches in this repo if multiple branches have been created. 
+6. Create the database using the migrations in the Seasonal Food API project. Open your shell (e.g., Terminal or GitBash), navigate to the production directory "SeasonalFood", and run `dotnet ef database update`. You may need to run this command for each of the branches in this repo if multiple branches have been created. 
     - To optionally create a migration, run the command `dotnet ef migrations add MigrationName` where `MigrationName` is your custom name for the migration in UpperCamelCase. To learn more about migrations, visit the LHTP lesson [Code First Development and Migrations](https://www.learnhowtoprogram.com/c-and-net-part-time/many-to-many-relationships/code-first-development-and-migrations).
-7. Within the production directory "SeasonalFood", run `dotnet watch run --launch-profile "SeasonalFood-Production"` in the command line to start the project in production mode with a watcher. 
-8. To optionally further build out this project in development mode, start the project with `dotnet watch run` in the production directory "SeasonalFood".
-9. Use your program of choice to make API calls. In your API calls, use the domain _http://localhost:5000_. Keep reading to learn about all of the available endpoints.
+7. Enable CORS by running `dotnet add package Microsoft.AspNet.WebApi.Cors --version 5.2.9` and adding the following code to Program.cs
+
+```
+var devCorsPolicy = "devCorsPolicy";
+builder.Services.AddCors(options => options.AddPolicy(devCorsPolicy, builder =>
+    {
+    builder
+        .AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader();
+    }));
+  ...
+  app.UseCors(devCorsPolicy);
+  ```
+
+8. Within the production directory "SeasonalFood", run `dotnet watch run --launch-profile "SeasonalFood-Production"` in the command line to start the project in production mode with a watcher. 
+9. To optionally further build out this project in development mode, start the project with `dotnet watch run` in the production directory "SeasonalFood".
+10. Use your program of choice to make API calls. In your API calls, use the domain _http://localhost:5000_. Keep reading to learn about all of the available endpoints.
 
 ## Testing the API Endpoints
 
@@ -77,100 +92,96 @@ You are welcome to test this API via [Postman](https://www.postman.com/) or [cur
 ### Available Endpoints
 
 ```
-GET http://localhost:5000/api/parks/
-GET http://localhost:5000/api/parks/{id}
-GET http://localhost:5000/api/parks/page/{page}
-POST http://localhost:5000/api/parks/
-PUT http://localhost:5000/api/parks/{id}
-DELETE http://localhost:5000/api/parks/{id}
+GET http://localhost:5000/api/foods/
+GET http://localhost:5000/api/foods/{id}
+GET http://localhost:5000/api/foods/page/{page}
+POST http://localhost:5000/api/foods/
+PUT http://localhost:5000/api/foods/{id}
+DELETE http://localhost:5000/api/foods/{id}
 ```
 
-Note: `{id}` is a variable and it should be replaced with the id number of the planet you want to GET, PUT, or DELETE. For GET .../page/{page}, {page} indicates the page number you wish to view. 
+Note: `{id}` is a variable and it should be replaced with the id number of the food you want to GET, PUT, or DELETE. For GET .../page/{page}, {page} indicates the page number you wish to view. 
 
 #### Optional Query String Parameters for GET Request
 
-GET requests to `http://localhost:5000/api/parks/` can optionally include query strings to filter or search parks. For example:
+GET requests to `http://localhost:5000/api/foods/` can optionally include query strings to filter or search foods. For example:
 
 | Parameter   | Type        |  Required    | Description |
 | ----------- | ----------- | -----------  | ----------- |
-| name        | String      | not required | Returns parks with a matching name value |
-| classification  | Number      | not required | Returns parks with a matching classification value |
+| name        | String      | not required | Returns foods with a matching name value |
+| harvestSeason  | String      | not required | Returns foods with a matching classification value |
 
 
 
-The following query will return all parks with the name "Crater Lake":
-
-```
-GET http://localhost:5000/api/parks?name=crater lake
-```
-
-The following query will return the second page, with 2 parks on it:
+The following query will return all foods with the name "cherry":
 
 ```
-GET http://localhost:5000/api/parks/page/2
+GET http://localhost:5000/api/foods?name=cherry
 ```
+![name endpoint](name-endpoint.png)
 
-To find a park founded before 1950, use the following query string:
-
-```
-GET http://localhost:5000/api/parks?foundedBefore=1950
-```
-
-Similarly, use the following query string to find a park founded after 1950:
+The following query will return the second page, with 2 foods on it:
 
 ```
-GET http://localhost:5000/api/parks?foundedAfter=1950
+GET http://localhost:5000/api/foods/page/2
+```
+
+To find a food harvested in the autumn:
+
+```
+GET http://localhost:5000/api/foods&harvestSeason=autumn
 ```
 
 You can include multiple query strings by separating them with an `&`:
 
 ```
-GET http://localhost:5000/api/planets?name=crater lake&location=oregon
+GET http://localhost:5000/api/foods?harvestSeason=summer&geography=tropical
 ```
 
 #### Additional Requirements for POST Request
 
-When making a POST request to `http://localhost:5000/api/parks/`, you need to include a **body**. Here's an example body in JSON:
+When making a POST request to `http://localhost:5000/api/foods/`, you need to include a **body**. Here's an example body in JSON:
 
 ```json
 {
-  "name": "Crater Lake",
-  "classification": "national park",
-  "location": "Oregon",
-  "majorLandmarks": "Crater Lake, Wizard Island",
-  "yearFounded": 1902
+  "foodId": 5,
+  "name": "Mango",
+  "harvestSeason": "Late summer through winter.",
+  "geography": "Tropical and subtropical climates.",
+  "popularUses": "Eaten raw, incorporated into desserts, added to many savory foods, used in salsas, made into lassi, processed into chutney.",
+  "sampleRecipe": "Mango Lassi, by pshinde2109 | cookeatshare.com | https://cookeatshare.com/recipes/mango-lassi-743042"
 }
 ```
 
 #### Additional Requirements for PUT Request
 
-When making a PUT request to `http://localhost:5000/api/parks/{id}`, you need to include a **body** that includes the parks's `parkId` property. Here's an example body in JSON:
+When making a PUT request to `http://localhost:5000/api/foods/{id}`, you need to include a **body** that includes the parks's `parkId` property. Here's an example body in JSON:
 
 ```json
 {
-  "parkId": 1,
-  "name": "Crater Lake",
-  "classification": "national park",
-  "location": "Oregon",
-  "majorLandmarks": "Crater Lake, Wizard Island",
-  "yearFounded": 1902
+  "foodId": 5,
+  "name": "Mango",
+  "harvestSeason": "Late summer through winter.",
+  "geography": "Tropical and subtropical climates.",
+  "popularUses": "Eaten raw, incorporated into desserts, added to many savory foods, used in salsas, made into lassi, processed into chutney.",
+  "sampleRecipe": "Mango Lassi, by pshinde2109 | cookeatshare.com | https://cookeatshare.com/recipes/mango-lassi-743042"
 }
 ```
 
 And here's the PUT request we would send the previous body to:
 
 ```
-http://localhost:5000/api/park/1
+http://localhost:5000/api/foods/5
 ```
 
-Notice that the value of `parkId` needs to match the id number in the URL. In this example, they are both 1.
+Notice that the value of `foodId` needs to match the id number in the URL. In this example, they are both 5.
 
-## Note about further exploration for coursework
-This API provides the ability to enable responsive pagination in MVC projects. Responsive pagination works fine when the API is tested with Postman. However, when working on a similar MVC during the week, the dev group I participated in had trouble enabling pagination in the website and ended up hard coding pagination, rather than creating responsive pagination.
+## Note about pagination
+This API provides the ability to enable responsive pagination in projects. Responsive pagination works fine when the API is tested with Postman. However, I have not implemented this in the [_Is it in Season?_](https://github.com/SarahAndyshak/seasonal-foods) project.
 
 ## Known Bugs
 
-* As of 31 March 2023, the search feature only works with complete names, locations, etc. This may be better to address in MVC search functions.
+* As 12 May 20223, none found.
 
 ## License
 Enjoy the API! If you have questions or suggestions for fixing the code, please contact me!
