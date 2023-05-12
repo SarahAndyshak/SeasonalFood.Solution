@@ -125,18 +125,21 @@ The following query will return the second page, with 2 foods on it:
 ```
 GET http://localhost:5000/api/foods/page/2
 ```
+![pagination](pagination-endpoint.png)
 
 To find a food harvested in the autumn:
 
 ```
 GET http://localhost:5000/api/foods&harvestSeason=autumn
 ```
+![season endpoint](season-endpoint.png)
 
 You can include multiple query strings by separating them with an `&`:
 
 ```
 GET http://localhost:5000/api/foods?harvestSeason=summer&geography=tropical
 ```
+![multiple endpoints](multiple-endpoints.png)
 
 #### Additional Requirements for POST Request
 
@@ -173,6 +176,7 @@ And here's the PUT request we would send the previous body to:
 ```
 http://localhost:5000/api/foods/5
 ```
+![post screenshot](post-action.png)
 
 Notice that the value of `foodId` needs to match the id number in the URL. In this example, they are both 5.
 
