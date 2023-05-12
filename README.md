@@ -1,8 +1,17 @@
-## Seasonal Food API
+## 🍒 Seasonal Food API
 
 #### By Sarah Andyshak
 
-#### An API for learning when fruits and vegetables are in season, where they tend to grow, and popular uses.
+### Description
+
+This API was created as the backend for the React application [_Is it in Season?_](https://github.com/SarahAndyshak/seasonal-foods). The API provides information on when fruits and vegetables are in season, general information about growing climates, and popular uses.
+
+#### [Technologies Used](#technologies-used)
+#### [How To Run This Project](#how-to-run-this-project)
+#### [Available Endpoints](#available-endpoints)
+#### [Optional Query String Parameters for GET Request](#optional-query-string-parameters-for-get-request)
+#### [Known Bugs](#known-bugs)
+#### [License](#license)
 
 ## Technologies Used
 
@@ -10,10 +19,6 @@
 * .NET
 * ASP.Net
 * Entity Framework
-
-## Description
-
-This API was created as the backend for the React application [_Is it in Season?_](https://github.com/SarahAndyshak/seasonal-foods).
 
 ## How To Run This Project
 
@@ -102,7 +107,7 @@ DELETE http://localhost:5000/api/foods/{id}
 
 Note: `{id}` is a variable and it should be replaced with the id number of the food you want to GET, PUT, or DELETE. For GET .../page/{page}, {page} indicates the page number you wish to view. 
 
-#### Optional Query String Parameters for GET Request
+### Optional Query String Parameters for GET Request
 
 GET requests to `http://localhost:5000/api/foods/` can optionally include query strings to filter or search foods. For example:
 
@@ -141,7 +146,7 @@ GET http://localhost:5000/api/foods?harvestSeason=summer&geography=tropical
 ```
 ![multiple endpoints](multiple-endpoints.png)
 
-#### Additional Requirements for POST Request
+### Additional Requirements for POST Request
 
 When making a POST request to `http://localhost:5000/api/foods/`, you need to include a **body**. Here's an example body in JSON:
 
@@ -156,7 +161,7 @@ When making a POST request to `http://localhost:5000/api/foods/`, you need to in
 }
 ```
 
-#### Additional Requirements for PUT Request
+### Additional Requirements for PUT Request
 
 When making a PUT request to `http://localhost:5000/api/foods/{id}`, you need to include a **body** that includes the parks's `parkId` property. Here's an example body in JSON:
 
@@ -176,11 +181,11 @@ And here's the PUT request we would send the previous body to:
 ```
 http://localhost:5000/api/foods/5
 ```
-![post screenshot](post-action.png)
+![post](post-action.png)
 
 Notice that the value of `foodId` needs to match the id number in the URL. In this example, they are both 5.
 
-## Note about pagination
+### Note about pagination
 This API provides the ability to enable responsive pagination in projects. Responsive pagination works fine when the API is tested with Postman. However, I have not implemented this in the [_Is it in Season?_](https://github.com/SarahAndyshak/seasonal-foods) project.
 
 ## Known Bugs
