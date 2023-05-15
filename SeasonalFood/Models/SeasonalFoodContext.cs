@@ -26,7 +26,7 @@ namespace SeasonalFood.Models
           HarvestSeason = "Mid to late summer.", 
           Geography = "Today tomatoes are grown around the world.", 
           PopularUses = "Eaten raw, in salads, processed into sauces, pastes and ketchup, made into salsas, soups, juice, cocktails, stewed, breaded, and fried.", 
-          SampleRecipe = "Mediterranean Lamb Stew with tomato, mushroom and eggplant (Kokkinisto), by John Spottiswood | cookeatshare.com |https://cookeatshare.com/recipes/mediterranean-lamb-stew-with-tomato-mushroom-and-eggplant-kokkinisto-797643" },
+          SampleRecipe = "Mediterranean Lamb Stew with tomato, mushroom and eggplant (Kokkinisto), by John Spottiswood | cookeatshare.com | https://cookeatshare.com/recipes/mediterranean-lamb-stew-with-tomato-mushroom-and-eggplant-kokkinisto-797643" },
           
           new Food { FoodId = 3, 
           Name = "Carrot", 
@@ -75,7 +75,7 @@ namespace SeasonalFood.Models
           HarvestSeason = "Spring and early summer.", 
           Geography = "Cooler regions.", 
           PopularUses = "Eaten raw, added to salads, steamed, stir-fried.", 
-          SampleRecipe = "" },
+          SampleRecipe = "Broccoli and Cauliflower Salad with Red Grapes Salad, by Robyn Savoie | cookeatshare.com | https://cookeatshare.com/recipes/broccoli-and-cauliflower-salad-with-red-grapes-719192" },
 
           new Food { FoodId = 10, 
           Name = "Cauliflower", 
